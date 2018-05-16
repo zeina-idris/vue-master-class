@@ -1,9 +1,9 @@
 <template>  
     <div class="thread">
         <div>
-            <p>
-                <a href="#">{{thread.title}}</a>
-            </p>
+          <router-link :to="{name: 'ThreadShow', params: {id: thread['.key']}}"> 
+            {{thread.title}}
+          </router-link>
             <p class="text-faded text-xsmall">
                 By <a href="#">{{user.name}}</a>, {{thread.publishedAt}}
             </p>
