@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="post">
-
         <div class="user-info">
         <a href="#" class="user-name">{{user.name}}</a>
 
@@ -19,8 +18,7 @@
         </div>
         </div>
         <div class="post-date text-faded">
-
-        {{post.publishedAt}}
+          <AppDate :timestamp="post.publishedAt" />
         </div>
     </div>
   </div>
@@ -41,6 +39,7 @@ export default {
     user () {
       return sourceData.users[this.post.userId]
     },
+
     userPostCount () {
       return Object.keys(this.user.posts).length
     }
