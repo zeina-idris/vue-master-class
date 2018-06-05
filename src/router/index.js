@@ -19,7 +19,7 @@ export default new Router({
     },
     {
       path: '/category/:id',
-      name: 'Category',
+      name: 'PageCategory',
       component: PageCategory,
       props: true
     },
