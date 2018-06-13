@@ -5,6 +5,7 @@
         :to="{name : 'Home'}"
         class="logo"
       >
+        <img src="../assets/img/svg/vueschool-logo.svg">
       </router-link>
 
         <div class="btn-hamburger">
@@ -40,10 +41,10 @@
 
             <li class="navbar-user">
                 <a href="#">
-                    <img class="avatar-small" src="https://pbs.twimg.com/profile_images/881260299420041217/GMVGlDea_400x400.jpg" alt="">
+                    <img class="avatar-small" :src="user.avatar" alt="">
                     <span>
-                        Alex Kyriakidis
-                        <img class="icon-profile" src="assets/img/svg/arrow-profile.svg" alt="">
+                        {{user.name}}
+                        <img class="icon-profile" src="../assets/img/svg/arrow-profile.svg" alt="">
                     </span>
                 </a>
 
@@ -64,8 +65,14 @@
 </template>
 
 <script>
-export default {
+  import {mapGetters} from 'vuex'
 
+export default {
+    computed: {
+      ...mapGetters({
+        'user': 'authUser'
+      })
+    }
 }
 </script>
 
