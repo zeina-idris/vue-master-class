@@ -28,6 +28,16 @@ export default new Vuex.Store({
       commit('appendPostToUser', {userId: post.userId, postId})
     },
 
+    createThread ({state, commit}, {text, title, forumId}) {
+      const threadId = 'greatThread' + Math.random()
+      const userId = state.authId
+      const publishedAt = Math.floor(Date.now() / 1000)
+
+      const thread = { '.key': threadId, title, forumId, publishedAt, userId }
+
+      commit('setThread', {threadId, thread})
+    },
+
     updateUser ({commit}, user) {
       commit('setUser', {userId: user['.key'], user})
     }
@@ -40,6 +50,10 @@ export default new Vuex.Store({
 
     setUser (state, {user, userId}) {
       Vue.set(state.users, userId, user)
+    },
+
+    setThread (state, {thread, threadId}) {
+      Vue.set(state.thread, threadId, thread)
     },
 
     appendPostToThread (state, {postId, threadId}) {
